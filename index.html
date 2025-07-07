@@ -1,0 +1,1845 @@
+<!DOCTYPE html>
+<html lang="en-IN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Free online EMI calculator for Indian users. Calculate loan EMI for home, car, personal, education loans in ₹ with prepayment, part payment, GST calculation & tax benefits emi calculate online mayank dhakad silwani.silwani pincode ">
+    <meta name="keywords" content="EMI calculator India, loan calculator Hindi, home loan EMI calculator, car loan calculator, personal loan EMI, education loan calculator, loan EMI calculator in rupees, भारतीय ऋण कैलकुलेटर , mayank dhakad silwani , youtube , loan , personal loan , silwani , persnoal loan, online loan inteset calulate , jayant dhakad , indian , google">
+    <title>Indian EMI Calculator | Home Loan, Car Loan, Personal Loan Calculator</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #3f51b5;
+            --secondary-color: #303f9f;
+            --accent-color: #448aff;
+            --light-color: #f8f9fa;
+            --dark-color: #212529;
+            --success-color: #4caf50;
+            --warning-color: #ff9800;
+            --danger-color: #f44336;
+            --border-radius: 8px;
+            --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', 'Arial', 'Roboto', 'Noto Sans Devanagari', sans-serif;
+        }
+
+        body {
+            background-color: #f5f7fa;
+            color: var(--dark-color);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 30px 0;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            border-radius: var(--border-radius);
+            margin-bottom: 30px;
+            box-shadow: var(--box-shadow);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .language-switcher {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+
+        .language-switcher button {
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .language-switcher button:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .tagline {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .calculator-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .calculator-types {
+            flex: 1;
+            min-width: 250px;
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 20px;
+            box-shadow: var(--box-shadow);
+        }
+
+        .calculator-types h2 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--accent-color);
+        }
+
+        .loan-types {
+            list-style: none;
+        }
+
+        .loan-types li {
+            margin-bottom: 10px;
+        }
+
+        .loan-types button {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            background: var(--light-color);
+            color: var(--dark-color);
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            text-align: left;
+            transition: var(--transition);
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .loan-types button:hover, .loan-types button.active {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .loan-types button i {
+            font-size: 1.2rem;
+        }
+
+        .calculator {
+            flex: 3;
+            min-width: 300px;
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 25px;
+            box-shadow: var(--box-shadow);
+        }
+
+        .calculator h2 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .calculator h2 i {
+            color: var(--accent-color);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .form-col {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--dark-color);
+        }
+
+        input, select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: var(--border-radius);
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        input:focus, select:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 2px rgba(63, 81, 181, 0.2);
+        }
+
+        .range-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .range-container input[type="range"] {
+            flex: 1;
+            padding: 0;
+        }
+
+        .range-value {
+            min-width: 50px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn:hover {
+            background: var(--secondary-color);
+            transform: translateY(-2px);
+        }
+
+        .btn-block {
+            display: block;
+            width: 100%;
+        }
+
+        .btn-secondary {
+            background: var(--light-color);
+            color: var(--dark-color);
+        }
+
+        .btn-secondary:hover {
+            background: #e2e6ea;
+        }
+
+        .results {
+            margin-top: 30px;
+            background: #f8f9fa;
+            border-radius: var(--border-radius);
+            padding: 20px;
+            display: none;
+        }
+
+        .results.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .result-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .result-card {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .result-card h3 {
+            font-size: 1rem;
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        .result-card .value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .result-card .subtext {
+            font-size: 0.9rem;
+            color: #777;
+        }
+
+        .amortization-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            display: none;
+        }
+
+        .amortization-table.active {
+            display: table;
+        }
+
+        .amortization-table th, .amortization-table td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+
+        .amortization-table th {
+            background: var(--primary-color);
+            color: white;
+            font-weight: 500;
+        }
+
+        .amortization-table tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+
+        .amortization-table tr:hover {
+            background: #f1f1f1;
+        }
+
+        .chart-container {
+            margin-top: 30px;
+            height: 300px;
+            display: none;
+        }
+
+        .chart-container.active {
+            display: block;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .feature-card {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 25px;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-card i {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .feature-card h3 {
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+
+        .comparison {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 25px;
+            box-shadow: var(--box-shadow);
+            margin-bottom: 30px;
+        }
+
+        .comparison h2 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .comparison-table th, .comparison-table td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+
+        .comparison-table th {
+            background: var(--primary-color);
+            color: white;
+            font-weight: 500;
+        }
+
+        .comparison-table tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+
+        .faq {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 25px;
+            box-shadow: var(--box-shadow);
+            margin-bottom: 30px;
+        }
+
+        .faq h2 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .faq-item {
+            margin-bottom: 15px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 15px;
+        }
+
+        .faq-question {
+            font-weight: 600;
+            color: var(--dark-color);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-question:hover {
+            color: var(--primary-color);
+        }
+
+        .faq-answer {
+            padding-top: 10px;
+            display: none;
+        }
+
+        .faq-answer.active {
+            display: block;
+        }
+
+        .tax-benefits {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 25px;
+            box-shadow: var(--box-shadow);
+            margin-bottom: 30px;
+            display: none;
+        }
+
+        .tax-benefits.active {
+            display: block;
+        }
+
+        .tax-benefits h2 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .prepayment-options {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 25px;
+            box-shadow: var(--box-shadow);
+            margin-bottom: 30px;
+            display: none;
+        }
+
+        .prepayment-options.active {
+            display: block;
+        }
+
+        .prepayment-options h2 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .bank-offers {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 25px;
+            box-shadow: var(--box-shadow);
+            margin-bottom: 30px;
+        }
+
+        .bank-offers h2 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .offer-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .offer-card {
+            border: 1px solid #eee;
+            border-radius: var(--border-radius);
+            padding: 15px;
+            transition: var(--transition);
+        }
+
+        .offer-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .offer-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .offer-card .offer-details {
+            margin-bottom: 10px;
+        }
+
+        .offer-card .validity {
+            font-size: 0.9rem;
+            color: #777;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px 0;
+            background: var(--dark-color);
+            color: white;
+            border-radius: var(--border-radius);
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-color);
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            color: var(--accent-color);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            opacity: 0.8;
+            font-size: 0.9rem;
+        }
+
+        .hindi {
+            display: none;
+        }
+
+        .language-hindi .hindi {
+            display: block;
+        }
+
+        .language-hindi .english {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .calculator-container {
+                flex-direction: column;
+            }
+            
+            .form-row {
+                flex-direction: column;
+                gap: 0;
+            }
+            
+            .result-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .result-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .calculator {
+                padding: 15px;
+            }
+        }
+
+        /* Print styles */
+        @media print {
+            body {
+                background: white;
+                color: black;
+                font-size: 12pt;
+            }
+            
+            .calculator-types, .btn, footer {
+                display: none;
+            }
+            
+            .calculator {
+                box-shadow: none;
+                padding: 0;
+            }
+            
+            .results {
+                display: block !important;
+                page-break-before: always;
+            }
+            
+            .amortization-table {
+                display: table !important;
+                font-size: 10pt;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="language-switcher">
+                <button id="switch-language">हिंदी</button>
+            </div>
+            <h1 class="english"><i class="fas fa-calculator"></i> Indian EMI Calculator</h1>
+            <h1 class="hindi"><i class="fas fa-calculator"></i> भारतीय ईएमआई कैलकुलेटर</h1>
+            <p class="tagline english">Calculate EMI for Home, Car, Personal & Education Loans in ₹</p>
+            <p class="tagline hindi">होम लोन, कार लोन, पर्सनल लोन और एजुकेशन लोन के लिए ईएमआई की गणना करें</p>
+        </header>
+
+        <div class="calculator-container">
+            <div class="calculator-types">
+                <h2 class="english">Loan Types</h2>
+                <h2 class="hindi">लोन के प्रकार</h2>
+                <ul class="loan-types">
+                    <li><button class="active" data-type="personal"><i class="fas fa-user"></i> <span class="english">Personal Loan</span><span class="hindi">पर्सनल लोन</span></button></li>
+                    <li><button data-type="home"><i class="fas fa-home"></i> <span class="english">Home Loan</span><span class="hindi">होम लोन</span></button></li>
+                    <li><button data-type="car"><i class="fas fa-car"></i> <span class="english">Car Loan</span><span class="hindi">कार लोन</span></button></li>
+                    <li><button data-type="education"><i class="fas fa-graduation-cap"></i> <span class="english">Education Loan</span><span class="hindi">एजुकेशन लोन</span></button></li>
+                    <li><button data-type="business"><i class="fas fa-briefcase"></i> <span class="english">Business Loan</span><span class="hindi">बिजनेस लोन</span></button></li>
+                    <li><button data-type="gold"><i class="fas fa-ring"></i> <span class="english">Gold Loan</span><span class="hindi">गोल्ड लोन</span></button></li>
+                    <li><button data-type="two-wheeler"><i class="fas fa-motorcycle"></i> <span class="english">Two-Wheeler Loan</span><span class="hindi">दोपहिया वाहन लोन</span></button></li>
+                </ul>
+            </div>
+
+            <div class="calculator">
+                <h2><i class="fas fa-calculator"></i> <span id="calculator-title" class="english">Personal Loan Calculator</span><span id="calculator-title-hindi" class="hindi">पर्सनल लोन कैलकुलेटर</span></h2>
+                
+                <form id="loan-form">
+                    <div class="form-row">
+                        <div class="form-col">
+                            <div class="form-group">
+                                <label for="loan-amount" class="english">Loan Amount (₹)</label>
+                                <label for="loan-amount" class="hindi">लोन राशि (₹)</label>
+                                <div class="range-container">
+                                    <input type="range" id="loan-amount-range" min="10000" max="10000000" step="10000" value="500000">
+                                    <span class="range-value" id="loan-amount-value">5,00,000</span>
+                                </div>
+                                <input type="number" id="loan-amount" value="500000" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-col">
+                            <div class="form-group">
+                                <label for="interest-rate" class="english">Interest Rate (%)</label>
+                                <label for="interest-rate" class="hindi">ब्याज दर (%)</label>
+                                <div class="range-container">
+                                    <input type="range" id="interest-rate-range" min="5" max="30" step="0.1" value="10.5">
+                                    <span class="range-value" id="interest-rate-value">10.5</span>
+                                </div>
+                                <input type="number" id="interest-rate" value="10.5" step="0.1" required>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-col">
+                            <div class="form-group">
+                                <label for="loan-term" class="english">Loan Term</label>
+                                <label for="loan-term" class="hindi">लोन अवधि</label>
+                                <div class="range-container">
+                                    <input type="range" id="loan-term-range" min="1" max="30" value="5">
+                                    <span class="range-value" id="loan-term-value">5</span>
+                                </div>
+                                <input type="number" id="loan-term" value="5" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-col">
+                            <div class="form-group">
+                                <label for="term-type" class="english">Term Type</label>
+                                <label for="term-type" class="hindi">अवधि प्रकार</label>
+                                <select id="term-type">
+                                    <option value="years" class="english">Years</option>
+                                    <option value="years" class="hindi">वर्ष</option>
+                                    <option value="months" class="english">Months</option>
+                                    <option value="months" class="hindi">महीने</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-col">
+                            <div class="form-group">
+                                <label for="start-date" class="english">Start Date</label>
+                                <label for="start-date" class="hindi">प्रारंभ तिथि</label>
+                                <input type="date" id="start-date" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-col">
+                            <div class="form-group">
+                                <label for="payment-frequency" class="english">Payment Frequency</label>
+                                <label for="payment-frequency" class="hindi">भुगतान आवृत्ति</label>
+                                <select id="payment-frequency">
+                                    <option value="monthly" class="english">Monthly</option>
+                                    <option value="monthly" class="hindi">मासिक</option>
+                                    <option value="quarterly" class="english">Quarterly</option>
+                                    <option value="quarterly" class="hindi">तिमाही</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="processing-fee" class="english">Processing Fee (%)</label>
+                        <label for="processing-fee" class="hindi">प्रोसेसिंग फीस (%)</label>
+                        <input type="number" id="processing-fee" value="1" min="0" max="10" step="0.1">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="gst" class="english">GST on Processing Fee (%)</label>
+                        <label for="gst" class="hindi">प्रोसेसिंग फीस पर जीएसटी (%)</label>
+                        <input type="number" id="gst" value="18" min="0" max="28" step="1">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="prepayment" class="english">Prepayment Amount (₹)</label>
+                        <label for="prepayment" class="hindi">प्रीपेमेंट राशि (₹)</label>
+                        <input type="number" id="prepayment" value="0" min="0">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="prepayment-month" class="english">Prepayment After (Months)</label>
+                        <label for="prepayment-month" class="hindi">प्रीपेमेंट कब (महीने)</label>
+                        <input type="number" id="prepayment-month" value="12" min="1">
+                    </div>
+                    
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-block"><i class="fas fa-calculator"></i> <span class="english">Calculate EMI</span><span class="hindi">ईएमआई की गणना करें</span></button>
+                    </div>
+                </form>
+                
+                <div class="results" id="results">
+                    <div class="result-grid">
+                        <div class="result-card">
+                            <h3 class="english">Monthly EMI</h3>
+                            <h3 class="hindi">मासिक ईएमआई</h3>
+                            <div class="value" id="monthly-payment">₹0</div>
+                        </div>
+                        <div class="result-card">
+                            <h3 class="english">Total Interest</h3>
+                            <h3 class="hindi">कुल ब्याज</h3>
+                            <div class="value" id="total-interest">₹0</div>
+                        </div>
+                        <div class="result-card">
+                            <h3 class="english">Total Cost</h3>
+                            <h3 class="hindi">कुल लागत</h3>
+                            <div class="value" id="total-cost">₹0</div>
+                        </div>
+                        <div class="result-card">
+                            <h3 class="english">Payoff Date</h3>
+                            <h3 class="hindi">भुगतान तिथि</h3>
+                            <div class="value" id="payoff-date">-</div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <button id="show-amortization" class="btn btn-secondary"><i class="fas fa-table"></i> <span class="english">Show Amortization Schedule</span><span class="hindi">अमोर्टाइजेशन शेड्यूल दिखाएं</span></button>
+                        <button id="show-chart" class="btn btn-secondary"><i class="fas fa-chart-pie"></i> <span class="english">Show Payment Breakdown</span><span class="hindi">भुगतान विवरण दिखाएं</span></button>
+                        <button id="show-tax" class="btn btn-secondary"><i class="fas fa-file-invoice-dollar"></i> <span class="english">Show Tax Benefits</span><span class="hindi">टैक्स लाभ दिखाएं</span></button>
+                        <button id="show-prepayment" class="btn btn-secondary"><i class="fas fa-money-bill-wave"></i> <span class="english">Prepayment Options</span><span class="hindi">प्रीपेमेंट विकल्प</span></button>
+                    </div>
+                    
+                    <div class="chart-container" id="chart-container">
+                        <canvas id="loan-chart"></canvas>
+                    </div>
+                    
+                    <div class="tax-benefits" id="tax-benefits">
+                        <h2><i class="fas fa-file-invoice-dollar"></i> <span class="english">Tax Benefits</span><span class="hindi">टैक्स लाभ</span></h2>
+                        <div class="result-grid">
+                            <div class="result-card">
+                                <h3 class="english">Annual Interest (₹)</h3>
+                                <h3 class="hindi">वार्षिक ब्याज (₹)</h3>
+                                <div class="value" id="annual-interest">₹0</div>
+                            </div>
+                            <div class="result-card">
+                                <h3 class="english">Tax Deduction (₹)</h3>
+                                <h3 class="hindi">टैक्स कटौती (₹)</h3>
+                                <div class="value" id="tax-deduction">₹0</div>
+                                <div class="subtext english">Under Section 24</div>
+                                <div class="subtext hindi">धारा 24 के तहत</div>
+                            </div>
+                            <div class="result-card">
+                                <h3 class="english">Principal Deduction (₹)</h3>
+                                <h3 class="hindi">मूलधन कटौती (₹)</h3>
+                                <div class="value" id="principal-deduction">₹0</div>
+                                <div class="subtext english">Under Section 80C</div>
+                                <div class="subtext hindi">धारा 80सी के तहत</div>
+                            </div>
+                        </div>
+                        <p class="english">Note: Tax benefits are applicable for home loans only. Consult your tax advisor for exact calculations based on your tax slab.</p>
+                        <p class="hindi">नोट: टैक्स लाभ केवल होम लोन के लिए लागू होते हैं। अपने टैक्स स्लैब के आधार पर सटीक गणना के लिए अपने टैक्स सलाहकार से परामर्श करें।</p>
+                    </div>
+                    
+                    <div class="prepayment-options" id="prepayment-options">
+                        <h2><i class="fas fa-money-bill-wave"></i> <span class="english">Prepayment Savings</span><span class="hindi">प्रीपेमेंट बचत</span></h2>
+                        <div class="result-grid">
+                            <div class="result-card">
+                                <h3 class="english">Interest Saved</h3>
+                                <h3 class="hindi">ब्याज बचत</h3>
+                                <div class="value" id="interest-saved">₹0</div>
+                            </div>
+                            <div class="result-card">
+                                <h3 class="english">New Payoff Date</h3>
+                                <h3 class="hindi">नई भुगतान तिथि</h3>
+                                <div class="value" id="new-payoff-date">-</div>
+                            </div>
+                            <div class="result-card">
+                                <h3 class="english">Months Reduced</h3>
+                                <h3 class="hindi">महीने कम हुए</h3>
+                                <div class="value" id="months-reduced">0</div>
+                            </div>
+                        </div>
+                        <p class="english">Making prepayments can significantly reduce your total interest and loan tenure.</p>
+                        <p class="hindi">प्रीपेमेंट करने से आपका कुल ब्याज और लोन अवधि काफी कम हो सकती है।</p>
+                    </div>
+                    
+                    <table class="amortization-table" id="amortization-table">
+                        <thead>
+                            <tr>
+                                <th class="english">Month</th>
+                                <th class="hindi">महीना</th>
+                                <th class="english">Date</th>
+                                <th class="hindi">तिथि</th>
+                                <th class="english">EMI</th>
+                                <th class="hindi">ईएमआई</th>
+                                <th class="english">Principal</th>
+                                <th class="hindi">मूलधन</th>
+                                <th class="english">Interest</th>
+                                <th class="hindi">ब्याज</th>
+                                <th class="english">Balance</th>
+                                <th class="hindi">शेष राशि</th>
+                            </tr>
+                        </thead>
+                        <tbody id="amortization-body">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        
+        <div class="bank-offers">
+            <h2><i class="fas fa-piggy-bank"></i> <span class="english">Current Bank Offers</span><span class="hindi">वर्तमान बैंक ऑफर</span></h2>
+            <div class="offer-cards">
+                <div class="offer-card">
+                    <h3>SBI Home Loan</h3>
+                    <div class="offer-details english">Interest Rate: 8.40% - 9.65% p.a.</div>
+                    <div class="offer-details hindi">ब्याज दर: 8.40% - 9.65% प्रति वर्ष</div>
+                    <div class="offer-details english">Processing Fee: 0.35% + GST</div>
+                    <div class="offer-details hindi">प्रोसेसिंग फीस: 0.35% + जीएसटी</div>
+                    <div class="validity english">Valid till: 31-Dec-2023</div>
+                    <div class="validity hindi">मान्य: 31-दिसंबर-2023 तक</div>
+                </div>
+                <div class="offer-card">
+                    <h3>HDFC Personal Loan</h3>
+                    <div class="offer-details english">Interest Rate: 10.50% - 21.00% p.a.</div>
+                    <div class="offer-details hindi">ब्याज दर: 10.50% - 21.00% प्रति वर्ष</div>
+                    <div class="offer-details english">Processing Fee: Up to 2.5% of loan amount</div>
+                    <div class="offer-details hindi">प्रोसेसिंग फीस: लोन राशि का 2.5% तक</div>
+                    <div class="validity english">Valid till: 31-Dec-2023</div>
+                    <div class="validity hindi">मान्य: 31-दिसंबर-2023 तक</div>
+                </div>
+                <div class="offer-card">
+                    <h3>ICICI Car Loan</h3>
+                    <div class="offer-details english">Interest Rate: 8.75% - 12.00% p.a.</div>
+                    <div class="offer-details hindi">ब्याज दर: 8.75% - 12.00% प्रति वर्ष</div>
+                    <div class="offer-details english">Processing Fee: ₹2,999 - ₹5,999</div>
+                    <div class="offer-details hindi">प्रोसेसिंग फीस: ₹2,999 - ₹5,999</div>
+                    <div class="validity english">Valid till: 31-Dec-2023</div>
+                    <div class="validity hindi">मान्य: 31-दिसंबर-2023 तक</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="features">
+            <div class="feature-card">
+                <i class="fas fa-rupee-sign"></i>
+                <h3 class="english">Indian Rupees Support</h3>
+                <h3 class="hindi">भारतीय रुपये का समर्थन</h3>
+                <p class="english">All calculations in ₹ with Indian number formatting (lakhs, crores).</p>
+                <p class="hindi">सभी गणनाएँ ₹ में भारतीय संख्या प्रारूप (लाख, करोड़) के साथ।</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-file-invoice-dollar"></i>
+                <h3 class="english">Tax Benefits Calculator</h3>
+                <h3 class="hini">टैक्स लाभ कैलकुलेटर</h3>
+                <p class="english">Calculate tax deductions under Section 24 and 80C for home loans.</p>
+                <p class="hindi">होम लोन के लिए धारा 24 और 80सी के तहत टैक्स कटौती की गणना करें।</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-money-bill-wave"></i>
+                <h3 class="english">Prepayment Options</h3>
+                <h3 class="hindi">प्रीपेमेंट विकल्प</h3>
+                <p class="english">See how prepayments can reduce your loan tenure and interest.</p>
+                <p class="hindi">देखें कि प्रीपेमेंट आपकी लोन अवधि और ब्याज को कैसे कम कर सकता है।</p>
+            </div>
+        </div>
+        
+        <div class="comparison">
+            <h2><i class="fas fa-balance-scale"></i> <span class="english">Loan Comparison</span><span class="hindi">लोन तुलना</span></h2>
+            <p class="english">Compare different loan options to find the best deal for your financial situation.</p>
+            <p class="hindi">अपनी वित्तीय स्थिति के लिए सर्वोत्तम सौदा खोजने के लिए विभिन्न लोन विकल्पों की तुलना करें।</p>
+            
+            <div class="form-group">
+                <button id="add-loan" class="btn"><i class="fas fa-plus"></i> <span class="english">Add Loan to Compare</span><span class="hindi">तुलना के लिए लोन जोड़ें</span></button>
+            </div>
+            
+            <table class="comparison-table" id="comparison-table">
+                <thead>
+                    <tr>
+                        <th class="english">Loan Type</th>
+                        <th class="hindi">लोन प्रकार</th>
+                        <th class="english">Amount</th>
+                        <th class="hindi">राशि</th>
+                        <th class="english">Rate</th>
+                        <th class="hindi">दर</th>
+                        <th class="english">Term</th>
+                        <th class="hindi">अवधि</th>
+                        <th class="english">EMI</th>
+                        <th class="hindi">ईएमआई</th>
+                        <th class="english">Total Interest</th>
+                        <th class="hindi">कुल ब्याज</th>
+                        <th class="english">Action</th>
+                        <th class="hindi">कार्रवाई</th>
+                    </tr>
+                </thead>
+                <tbody id="comparison-body">
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="faq">
+            <h2><i class="fas fa-question-circle"></i> <span class="english">Frequently Asked Questions</span><span class="hindi">अक्सर पूछे जाने वाले प्रश्न</span></h2>
+            
+            <div class="faq-item">
+                <div class="faq-question english">How is EMI calculated? <i class="fas fa-chevron-down"></i></div>
+                <div class="faq-question hindi">ईएमआई की गणना कैसे की जाती है? <i class="fas fa-chevron-down"></i></div>
+                <div class="faq-answer english">
+                    <p>EMI is calculated using the formula: EMI = [P x R x (1+R)^N]/[(1+R)^N-1] where P is the loan amount, R is the monthly interest rate, and N is the number of monthly installments.</p>
+                </div>
+                <div class="faq-answer hindi">
+                    <p>ईएमआई की गणना सूत्र का उपयोग करके की जाती है: ईएमआई = [P x R x (1+R)^N]/[(1+R)^N-1] जहां P लोन राशि है, R मासिक ब्याज दर है, और N मासिक किश्तों की संख्या है।</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question english">What is the minimum salary required for a home loan? <i class="fas fa-chevron-down"></i></div>
+                <div class="faq-question hindi">होम लोन के लिए न्यूनतम वेतन कितना होना चाहिए? <i class="fas fa-chevron-down"></i></div>
+                <div class="faq-answer english">
+                    <p>Most banks require a minimum monthly salary of ₹25,000-₹30,000 for salaried individuals. For self-employed individuals, it depends on business income and profitability.</p>
+                </div>
+                <div class="faq-answer hindi">
+                    <p>अधिकांश बैंकों को सैलरी पाने वाले व्यक्तियों के लिए न्यूनतम मासिक वेतन ₹25,000-₹30,000 की आवश्यकता होती है। स्वरोजगार करने वाले व्यक्तियों के लिए, यह व्यवसाय की आय और लाभ पर निर्भर करता है।</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question english">What documents are required for a personal loan? <i class="fas fa-chevron-down"></i></div>
+                <div class="faq-question hindi">पर्सनल लोन के लिए कौन से दस्तावेज आवश्यक हैं? <i class="fas fa-chevron-down"></i></div>
+                <div class="faq-answer english">
+                    <p>Typically you need: 1) Identity proof (Aadhaar, PAN, Passport), 2) Address proof, 3) Income proof (salary slips/bank statements), 4) Employment proof, and 5) Photographs.</p>
+                </div>
+                <div class="faq-answer hindi">
+                    <p>आमतौर पर आपको चाहिए: 1) पहचान प्रमाण (आधार, पैन, पासपोर्ट), 2) पता प्रमाण, 3) आय प्रमाण (वेतन पर्ची/बैंक स्टेटमेंट), 4) रोजगार प्रमाण, और 5) फोटोग्राफ।</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question english">How does prepayment affect my loan? <i class="fas fa-chevron-down"></i></div>
+                <div class="faq-question hindi">प्रीपेमेंट मेरे लोन को कैसे प्रभावित करता है? <i class="fas fa-chevron-down"></i></div>
+                <div class="faq-answer english">
+                    <p>Prepayment reduces your principal amount, which decreases the total interest paid and may shorten your loan tenure. Some banks charge a prepayment penalty, especially for fixed-rate loans.</p>
+                </div>
+                <div class="faq-answer hindi">
+                    <p>प्रीपेमेंट आपके मूलधन को कम करता है, जिससे भुगतान किया गया कुल ब्याज कम हो जाता है और आपकी लोन अवधि कम हो सकती है। कुछ बैंक प्रीपेमेंट जुर्माना लगाते हैं, विशेष रूप से फिक्स्ड-रेट लोन के लिए।</p>
+                </div>
+            </div>
+        </div>
+        
+        <footer>
+            <div class="footer-links">
+                <a href="https://mayankdhakad.pages.dev/" class="english">About Us</a>
+                <a href="https://mayankdhakad.pages.dev/" class="hindi">हमारे बारे में</a>
+                <a href="https://mayankdhakad.pages.dev/" class="english">Privacy Policy</a>
+                <a href="https://mayankdhakad.pages.dev/" class="hindi">गोपनीयता नीति</a>
+                <a href="https://mayankdhakad.pages.dev/" class="english">Terms of Service</a>
+                <a href="https://mayankdhakad.pages.dev/" class="hindi">सेवा की शर्तें</a>
+                <a href="https://mayankdhakad.pages.dev/" class="english">Contact</a>
+                <a href="https://mayankdhakad.pages.dev/" class="hindi">संपर्क करें</a>
+            </div>
+            
+            <div class="social-links">
+                <a href="https://www.facebook.com/mayank.dhakad.5264"><i class="fab fa-facebook"></i></a>
+                <a href="https://www.instagram.com/mayank000_5?igsh=bXJrODVld3RtZjYw"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.instagram.com/mayank000_5?igsh=bXJrODVld3RtZjYw"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.linkedin.com/in/mayank-dhakad-b8a594364?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"><i class="fab fa-linkedin"></i></a>
+                <a href="https://mayankdhakad.pages.dev/"><i class="fab fa-youtube"></i></a>
+            </div>
+            
+            <p class="copyright english">© <span id="current-year"></span> Made By Mayank Dhakad 2025. All rights reserved.</p>
+            <p class="copyright hindi">© <span id="current-year-hindi"></span>Made by Mayank Dhkad। सर्वाधिकार सुरक्षित।</p>
+        </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Set current year in footer
+            const currentYear = new Date().getFullYear();
+            document.getElementById('current-year').textContent = currentYear;
+            document.getElementById('current-year-hindi').textContent = currentYear;
+            
+            // Set default start date to today
+            const today = new Date();
+            const formattedDate = today.toISOString().split('T')[0];
+            document.getElementById('start-date').value = formattedDate;
+            
+            // Language switcher
+            document.getElementById('switch-language').addEventListener('click', function() {
+                document.body.classList.toggle('language-hindi');
+                this.textContent = document.body.classList.contains('language-hindi') ? 'English' : 'हिंदी';
+            });
+            
+            // Loan type switcher
+            const loanTypeButtons = document.querySelectorAll('.loan-types button');
+            loanTypeButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    loanTypeButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+                    document.getElementById('calculator-title').textContent = `${this.querySelector('.english').textContent.trim()} Calculator`;
+                    document.getElementById('calculator-title-hindi').textContent = `${this.querySelector('.hindi').textContent.trim()} कैलकुलेटर`;
+                    
+                    // Set default values based on loan type
+                    const loanType = this.dataset.type;
+                    setLoanDefaults(loanType);
+                });
+            });
+            
+            // Range inputs sync with number inputs
+            syncRangeInput('loan-amount-range', 'loan-amount', 'loan-amount-value', formatIndianCurrency);
+            syncRangeInput('interest-rate-range', 'interest-rate', 'interest-rate-value');
+            syncRangeInput('loan-term-range', 'loan-term', 'loan-term-value');
+            
+            // Form submission
+            const loanForm = document.getElementById('loan-form');
+            loanForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                calculateLoan();
+            });
+            
+            // Show amortization table
+            document.getElementById('show-amortization').addEventListener('click', function() {
+                const table = document.getElementById('amortization-table');
+                table.classList.toggle('active');
+                if (document.body.classList.contains('language-hindi')) {
+                    this.innerHTML = table.classList.contains('active') ? 
+                        '<i class="fas fa-table"></i> अमोर्टाइजेशन शेड्यूल छिपाएं' : 
+                        '<i class="fas fa-table"></i> अमोर्टाइजेशन शेड्यूल दिखाएं';
+                } else {
+                    this.innerHTML = table.classList.contains('active') ? 
+                        '<i class="fas fa-table"></i> Hide Amortization Schedule' : 
+                        '<i class="fas fa-table"></i> Show Amortization Schedule';
+                }
+            });
+            
+            // Show chart
+            document.getElementById('show-chart').addEventListener('click', function() {
+                const chart = document.getElementById('chart-container');
+                chart.classList.toggle('active');
+                if (document.body.classList.contains('language-hindi')) {
+                    this.innerHTML = chart.classList.contains('active') ? 
+                        '<i class="fas fa-chart-pie"></i> भुगतान विवरण छिपाएं' : 
+                        '<i class="fas fa-chart-pie"></i> भुगतान विवरण दिखाएं';
+                } else {
+                    this.innerHTML = chart.classList.contains('active') ? 
+                        '<i class="fas fa-chart-pie"></i> Hide Payment Breakdown' : 
+                        '<i class="fas fa-chart-pie"></i> Show Payment Breakdown';
+                }
+                
+                if (chart.classList.contains('active') && !window.loanChart) {
+                    createChart();
+                }
+            });
+            
+            // Show tax benefits
+            document.getElementById('show-tax').addEventListener('click', function() {
+                const taxBenefits = document.getElementById('tax-benefits');
+                taxBenefits.classList.toggle('active');
+                if (document.body.classList.contains('language-hindi')) {
+                    this.innerHTML = taxBenefits.classList.contains('active') ? 
+                        '<i class="fas fa-file-invoice-dollar"></i> टैक्स लाभ छिपाएं' : 
+                        '<i class="fas fa-file-invoice-dollar"></i> टैक्स लाभ दिखाएं';
+                } else {
+                    this.innerHTML = taxBenefits.classList.contains('active') ? 
+                        '<i class="fas fa-file-invoice-dollar"></i> Hide Tax Benefits' : 
+                        '<i class="fas fa-file-invoice-dollar"></i> Show Tax Benefits';
+                }
+            });
+            
+            // Show prepayment options
+            document.getElementById('show-prepayment').addEventListener('click', function() {
+                const prepaymentOptions = document.getElementById('prepayment-options');
+                prepaymentOptions.classList.toggle('active');
+                if (document.body.classList.contains('language-hindi')) {
+                    this.innerHTML = prepaymentOptions.classList.contains('active') ? 
+                        '<i class="fas fa-money-bill-wave"></i> प्रीपेमेंट विकल्प छिपाएं' : 
+                        '<i class="fas fa-money-bill-wave"></i> प्रीपेमेंट विकल्प दिखाएं';
+                } else {
+                    this.innerHTML = prepaymentOptions.classList.contains('active') ? 
+                        '<i class="fas fa-money-bill-wave"></i> Hide Prepayment Options' : 
+                        '<i class="fas fa-money-bill-wave"></i> Show Prepayment Options';
+                }
+            });
+            
+            // Add loan to comparison
+            document.getElementById('add-loan').addEventListener('click', function() {
+                addLoanToComparison();
+            });
+            
+            // FAQ toggle
+            const faqQuestions = document.querySelectorAll('.faq-question');
+            faqQuestions.forEach(question => {
+                question.addEventListener('click', function() {
+                    const answer = this.nextElementSibling;
+                    answer.classList.toggle('active');
+                    const icon = this.querySelector('i');
+                    icon.className = answer.classList.contains('active') ? 
+                        'fas fa-chevron-up' : 'fas fa-chevron-down';
+                });
+            });
+            
+            // Initialize with personal loan defaults
+            setLoanDefaults('personal');
+        });
+        
+        function syncRangeInput(rangeId, inputId, valueId, formatter = null) {
+            const rangeInput = document.getElementById(rangeId);
+            const numberInput = document.getElementById(inputId);
+            const valueDisplay = document.getElementById(valueId);
+            
+            rangeInput.addEventListener('input', function() {
+                numberInput.value = this.value;
+                if (formatter) {
+                    valueDisplay.textContent = formatter(this.value);
+                } else {
+                    valueDisplay.textContent = this.value;
+                }
+            });
+            
+            numberInput.addEventListener('input', function() {
+                rangeInput.value = this.value;
+                if (formatter) {
+                    valueDisplay.textContent = formatter(this.value);
+                } else {
+                    valueDisplay.textContent = this.value;
+                }
+            });
+        }
+        
+        function formatIndianCurrency(value) {
+            // Format number to Indian Rupees with commas
+            const formatter = new Intl.NumberFormat('en-IN', {
+                style: 'currency',
+                currency: 'INR',
+                minimumFractionDigits: 0,
+                maximumFractionDigits: 0
+            });
+            return formatter.format(value).replace('₹', '₹');
+        }
+        
+        function formatDate(date) {
+            const options = { year: 'numeric', month: 'short', day: 'numeric' };
+            if (document.body.classList.contains('language-hindi')) {
+                return date.toLocaleDateString('hi-IN', options);
+            }
+            return date.toLocaleDateString('en-IN', options);
+        }
+        
+        function setLoanDefaults(loanType) {
+            const defaults = {
+                personal: { amount: 500000, rate: 10.5, term: 5, termType: 'years', processingFee: 2, gst: 18 },
+                home: { amount: 5000000, rate: 8.4, term: 20, termType: 'years', processingFee: 0.5, gst: 18 },
+                car: { amount: 800000, rate: 9.5, term: 7, termType: 'years', processingFee: 1, gst: 18 },
+                education: { amount: 1000000, rate: 9.0, term: 10, termType: 'years', processingFee: 1.5, gst: 18 },
+                business: { amount: 2000000, rate: 12.0, term: 5, termType: 'years', processingFee: 2, gst: 18 },
+                gold: { amount: 300000, rate: 11.0, term: 3, termType: 'years', processingFee: 1, gst: 18 },
+                'two-wheeler': { amount: 100000, rate: 12.5, term: 3, termType: 'years', processingFee: 1.5, gst: 18 }
+            };
+            
+            const defaultValues = defaults[loanType] || defaults.personal;
+            
+            document.getElementById('loan-amount').value = defaultValues.amount;
+            document.getElementById('loan-amount-range').value = defaultValues.amount;
+            document.getElementById('loan-amount-value').textContent = formatIndianCurrency(defaultValues.amount);
+            
+            document.getElementById('interest-rate').value = defaultValues.rate;
+            document.getElementById('interest-rate-range').value = defaultValues.rate;
+            document.getElementById('interest-rate-value').textContent = defaultValues.rate;
+            
+            document.getElementById('loan-term').value = defaultValues.term;
+            document.getElementById('loan-term-range').value = defaultValues.term;
+            document.getElementById('loan-term-value').textContent = defaultValues.term;
+            
+            document.getElementById('term-type').value = defaultValues.termType;
+            document.getElementById('processing-fee').value = defaultValues.processingFee;
+            document.getElementById('gst').value = defaultValues.gst;
+            
+            // Set payment frequency to monthly by default
+            document.getElementById('payment-frequency').value = 'monthly';
+        }
+        
+        function calculateLoan() {
+            // Get form values
+            const amount = parseFloat(document.getElementById('loan-amount').value);
+            const interestRate = parseFloat(document.getElementById('interest-rate').value) / 100;
+            let term = parseFloat(document.getElementById('loan-term').value);
+            const termType = document.getElementById('term-type').value;
+            const startDate = new Date(document.getElementById('start-date').value);
+            const paymentFrequency = document.getElementById('payment-frequency').value;
+            const processingFee = parseFloat(document.getElementById('processing-fee').value) || 0;
+            const gst = parseFloat(document.getElementById('gst').value) || 0;
+            const prepaymentAmount = parseFloat(document.getElementById('prepayment').value) || 0;
+            const prepaymentMonth = parseFloat(document.getElementById('prepayment-month').value) || 0;
+            
+            // Calculate processing fee amount
+            const processingFeeAmount = amount * (processingFee / 100);
+            const gstAmount = processingFeeAmount * (gst / 100);
+            const totalProcessingFee = processingFeeAmount + gstAmount;
+            
+            // Convert term to months if in years
+            if (termType === 'years') {
+                term = term * 12;
+            }
+            
+            // Adjust term and rate based on payment frequency
+            let periodsPerYear, periodicRate;
+            switch (paymentFrequency) {
+                case 'monthly':
+                    periodsPerYear = 12;
+                    break;
+                case 'biweekly':
+                    periodsPerYear = 26;
+                    break;
+                case 'weekly':
+                    periodsPerYear = 52;
+                    break;
+                case 'quarterly':
+                    periodsPerYear = 4;
+                    break;
+                case 'annually':
+                    periodsPerYear = 1;
+                    break;
+                default:
+                    periodsPerYear = 12;
+            }
+            
+            periodicRate = interestRate / periodsPerYear;
+            const totalPayments = term;
+            
+            // Calculate monthly payment
+            let payment;
+            if (interestRate === 0) {
+                payment = amount / totalPayments;
+            } else {
+                payment = amount * (periodicRate * Math.pow(1 + periodicRate, totalPayments)) / 
+                         (Math.pow(1 + periodicRate, totalPayments) - 1);
+            }
+            
+            // Generate amortization schedule with prepayment
+            const schedule = generateAmortizationSchedule(amount, interestRate, totalPayments, payment, startDate, paymentFrequency, prepaymentAmount, prepaymentMonth);
+            
+            // Calculate without prepayment for comparison
+            const scheduleWithoutPrepayment = generateAmortizationSchedule(amount, interestRate, totalPayments, payment, startDate, paymentFrequency, 0, 0);
+            
+            // Update actual payoff date based on extra payments
+            const actualPayments = schedule.length;
+            const payoffDate = calculatePayoffDate(startDate, actualPayments, paymentFrequency);
+            
+            // Calculate total interest and cost
+            const totalInterest = schedule.reduce((sum, payment) => sum + payment.interest, 0);
+            const totalCost = amount + totalInterest + totalProcessingFee;
+            
+            // Calculate interest saved from prepayment
+            const interestWithoutPrepayment = scheduleWithoutPrepayment.reduce((sum, payment) => sum + payment.interest, 0);
+            const interestSaved = interestWithoutPrepayment - totalInterest;
+            const monthsReduced = scheduleWithoutPrepayment.length - schedule.length;
+            
+            // Display results
+            document.getElementById('monthly-payment').textContent = formatIndianCurrency(payment);
+            document.getElementById('total-interest').textContent = formatIndianCurrency(totalInterest);
+            document.getElementById('total-cost').textContent = formatIndianCurrency(totalCost);
+            document.getElementById('payoff-date').textContent = formatDate(payoffDate);
+            
+            // Display tax benefits (for home loans only)
+            const loanType = document.querySelector('.loan-types button.active').dataset.type;
+            if (loanType === 'home') {
+                const annualInterest = totalInterest / (term / 12);
+                document.getElementById('annual-interest').textContent = formatIndianCurrency(annualInterest);
+                document.getElementById('tax-deduction').textContent = formatIndianCurrency(Math.min(annualInterest, 200000));
+                document.getElementById('principal-deduction').textContent = formatIndianCurrency(Math.min(amount * 0.2, 150000));
+            }
+            
+            // Display prepayment savings
+            document.getElementById('interest-saved').textContent = formatIndianCurrency(interestSaved);
+            document.getElementById('months-reduced').textContent = monthsReduced;
+            document.getElementById('new-payoff-date').textContent = formatDate(payoffDate);
+            
+            // Display amortization table
+            displayAmortizationTable(schedule);
+            
+            // Create chart
+            createChart(amount, totalInterest);
+            
+            // Show results
+            document.getElementById('results').classList.add('active');
+        }
+        
+        function generateAmortizationSchedule(amount, annualRate, totalPayments, payment, startDate, frequency, prepaymentAmount, prepaymentMonth) {
+            let balance = amount;
+            const schedule = [];
+            const periodsPerYear = getPeriodsPerYear(frequency);
+            const periodicRate = annualRate / periodsPerYear;
+            let currentDate = new Date(startDate);
+            
+            for (let i = 1; i <= totalPayments && balance > 0; i++) {
+                const interest = balance * periodicRate;
+                let principal = payment - interest;
+                
+                // Apply prepayment if specified month reached
+                let actualPrepayment = 0;
+                if (prepaymentAmount > 0 && i >= prepaymentMonth) {
+                    actualPrepayment = Math.min(prepaymentAmount, balance - principal);
+                    principal += actualPrepayment;
+                }
+                
+                // Adjust final payment if it would overpay
+                if (principal > balance) {
+                    principal = balance;
+                }
+                
+                balance -= principal;
+                
+                // Ensure balance doesn't go below zero
+                if (balance < 0) {
+                    principal += balance;
+                    balance = 0;
+                }
+                
+                // Add payment to schedule
+                schedule.push({
+                    period: i,
+                    date: new Date(currentDate),
+                    payment: principal + interest,
+                    principal: principal,
+                    interest: interest,
+                    prepayment: actualPrepayment,
+                    balance: balance
+                });
+                
+                // Update date for next payment
+                currentDate = calculateNextPaymentDate(currentDate, frequency);
+            }
+            
+            return schedule;
+        }
+        
+        function getPeriodsPerYear(frequency) {
+            switch (frequency) {
+                case 'monthly': return 12;
+                case 'biweekly': return 26;
+                case 'weekly': return 52;
+                case 'quarterly': return 4;
+                case 'annually': return 1;
+                default: return 12;
+            }
+        }
+        
+        function calculateNextPaymentDate(currentDate, frequency) {
+            const newDate = new Date(currentDate);
+            switch (frequency) {
+                case 'monthly':
+                    newDate.setMonth(newDate.getMonth() + 1);
+                    break;
+                case 'biweekly':
+                    newDate.setDate(newDate.getDate() + 14);
+                    break;
+                case 'weekly':
+                    newDate.setDate(newDate.getDate() + 7);
+                    break;
+                case 'quarterly':
+                    newDate.setMonth(newDate.getMonth() + 3);
+                    break;
+                case 'annually':
+                    newDate.setFullYear(newDate.getFullYear() + 1);
+                    break;
+            }
+            return newDate;
+        }
+        
+        function calculatePayoffDate(startDate, numberOfPayments, frequency) {
+            let date = new Date(startDate);
+            const periodsPerYear = getPeriodsPerYear(frequency);
+            const paymentsPerYear = periodsPerYear;
+            
+            for (let i = 1; i < numberOfPayments; i++) {
+                date = calculateNextPaymentDate(date, frequency);
+            }
+            
+            return date;
+        }
+        
+        function displayAmortizationTable(schedule) {
+            const tableBody = document.getElementById('amortization-body');
+            tableBody.innerHTML = '';
+            
+            schedule.forEach(payment => {
+                const row = document.createElement('tr');
+                
+                if (document.body.classList.contains('language-hindi')) {
+                    row.innerHTML = `
+                        <td>${payment.period}</td>
+                        <td>${formatDate(payment.date)}</td>
+                        <td>${formatIndianCurrency(payment.payment)}</td>
+                        <td>${formatIndianCurrency(payment.principal)}</td>
+                        <td>${formatIndianCurrency(payment.interest)}</td>
+                        <td>${formatIndianCurrency(payment.balance)}</td>
+                    `;
+                } else {
+                    row.innerHTML = `
+                        <td>${payment.period}</td>
+                        <td>${formatDate(payment.date)}</td>
+                        <td>${formatIndianCurrency(payment.payment)}</td>
+                        <td>${formatIndianCurrency(payment.principal)}</td>
+                        <td>${formatIndianCurrency(payment.interest)}</td>
+                        <td>${formatIndianCurrency(payment.balance)}</td>
+                    `;
+                }
+                
+                tableBody.appendChild(row);
+            });
+        }
+        
+        function createChart(principal = 0, interest = 0) {
+            const ctx = document.getElementById('loan-chart').getContext('2d');
+            
+            if (window.loanChart) {
+                window.loanChart.destroy();
+            }
+            
+            window.loanChart = new Chart(ctx, {
+                type: 'pie',
+                data: {
+                    labels: [
+                        document.body.classList.contains('language-hindi') ? 'मूलधन' : 'Principal', 
+                        document.body.classList.contains('language-hindi') ? 'ब्याज' : 'Interest'
+                    ],
+                    datasets: [{
+                        data: [principal, interest],
+                        backgroundColor: [
+                            '#3f51b5',
+                            '#448aff'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    const label = context.label || '';
+                                    const value = context.raw || 0;
+                                    const total = context.dataset.data.reduce((a, b) => a + b, 0);
+                                    const percentage = Math.round((value / total) * 100);
+                                    return `${label}: ${formatIndianCurrency(value)} (${percentage}%)`;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        }
+        
+        function addLoanToComparison() {
+            const loanType = document.querySelector('.loan-types button.active').querySelector('.english').textContent.trim();
+            const loanTypeHindi = document.querySelector('.loan-types button.active').querySelector('.hindi').textContent.trim();
+            const amount = parseFloat(document.getElementById('loan-amount').value);
+            const rate = parseFloat(document.getElementById('interest-rate').value);
+            const term = parseFloat(document.getElementById('loan-term').value);
+            const termType = document.getElementById('term-type').value;
+            const payment = document.getElementById('monthly-payment').textContent;
+            const totalInterest = document.getElementById('total-interest').textContent;
+            
+            const comparisonBody = document.getElementById('comparison-body');
+            const row = document.createElement('tr');
+            
+            if (document.body.classList.contains('language-hindi')) {
+                row.innerHTML = `
+                    <td>${loanTypeHindi}</td>
+                    <td>${formatIndianCurrency(amount)}</td>
+                    <td>${rate}%</td>
+                    <td>${term} ${termType === 'years' ? 'वर्ष' : 'महीने'}</td>
+                    <td>${payment}</td>
+                    <td>${totalInterest}</td>
+                    <td><button class="btn btn-secondary remove-loan"><i class="fas fa-trash"></i></button></td>
+                `;
+            } else {
+                row.innerHTML = `
+                    <td>${loanType}</td>
+                    <td>${formatIndianCurrency(amount)}</td>
+                    <td>${rate}%</td>
+                    <td>${term} ${termType}</td>
+                    <td>${payment}</td>
+                    <td>${totalInterest}</td>
+                    <td><button class="btn btn-secondary remove-loan"><i class="fas fa-trash"></i></button></td>
+                `;
+            }
+            
+            comparisonBody.appendChild(row);
+            
+            // Add event listener to remove button
+            row.querySelector('.remove-loan').addEventListener('click', function() {
+                row.remove();
+            });
+        }
+    </script>
+    <!-- Permanent Review Widget - Paste this before </body> tag -->
+<div id="permanentReviewWidget" class="permanent-review-widget">
+  <div class="review-header">
+    <span class="close-btn" onclick="handleClose()">×</span>
+    <h4>Rate Us</h4>
+    <p>How's your experience?</p>
+  </div>
+  <div class="stars-container">
+    <span class="star" data-value="1">★</span>
+    <span class="star" data-value="2">★</span>
+    <span class="star" data-value="3">★</span>
+    <span class="star" data-value="4">★</span>
+    <span class="star" data-value="5">★</span>
+  </div>
+  <div class="action-buttons">
+    <button class="later-btn" onclick="remindLater()">Remind Later</button>
+    <button class="review-btn" onclick="leaveReview()">Leave Review</button>
+  </div>
+</div>
+
+<style>
+/* Permanent Review Widget Styles */
+.permanent-review-widget {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 160px;
+  background: white;
+  border-radius: 12px;
+  padding: 15px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  z-index: 9999;
+  font-family: Arial, sans-serif;
+  border: 1px solid #e5e7eb;
+  display: block;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+.permanent-review-widget.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.review-header {
+  position: relative;
+  margin-bottom: 10px;
+}
+
+.review-header h4 {
+  margin: 0 0 5px 0;
+  font-size: 16px;
+  color: #1f2937;
+}
+
+.review-header p {
+  margin: 0;
+  font-size: 13px;
+  color: #6b7280;
+}
+
+.close-btn {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  width: 20px;
+  height: 20px;
+  background: #f3f4f6;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  cursor: pointer;
+  color: #6b7280;
+}
+
+.stars-container {
+  display: flex;
+  justify-content: space-between;
+  margin: 12px 0;
+}
+
+.stars-container .star {
+  font-size: 18px;
+  color: #e5e7eb;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.stars-container .star:hover,
+.stars-container .star.active {
+  color: #f59e0b;
+  transform: scale(1.2);
+}
+
+.action-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.action-buttons button {
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: none;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.later-btn {
+  background: #f3f4f6;
+  color: #4b5563;
+}
+
+.later-btn:hover {
+  background: #e5e7eb;
+}
+
+.review-btn {
+  background: #3b82f6;
+  color: white;
+}
+
+.review-btn:hover {
+  background: #2563eb;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .permanent-review-widget {
+    width: 140px;
+    padding: 12px;
+    bottom: 15px;
+    right: 100px;
+  }
+}
+</style>
+
+<script>
+// Initialize with localStorage check
+document.addEventListener('DOMContentLoaded', function() {
+  if (localStorage.getItem('reviewWidgetHidden') !== 'true') {
+    showWidget();
+  }
+});
+
+// Rating functionality
+let selectedRating = 0;
+const stars = document.querySelectorAll('.star');
+
+stars.forEach(star => {
+  star.addEventListener('click', () => {
+    selectedRating = star.getAttribute('data-value');
+    stars.forEach(s => {
+      s.classList.toggle('active', s.getAttribute('data-value') <= selectedRating);
+    });
+  });
+});
+
+// Show widget function
+function showWidget() {
+  const widget = document.getElementById('permanentReviewWidget');
+  widget.classList.remove('hidden');
+}
+
+// Close functionality
+function handleClose() {
+  const widget = document.getElementById('permanentReviewWidget');
+  widget.classList.add('hidden');
+  localStorage.setItem('reviewWidgetHidden', 'true');
+  
+  // Show again after 10 seconds
+  setTimeout(() => {
+    localStorage.setItem('reviewWidgetHidden', 'false');
+    showWidget();
+  }, 10000);
+}
+
+// Review actions
+function leaveReview() {
+  if (selectedRating > 0) {
+    window.open('https://reviewthis.biz/mayankdhakadreview', '_blank');
+  }
+  handleClose();
+}
+
+function remindLater() {
+  handleClose();
+  setTimeout(() => {
+    localStorage.setItem('reviewWidgetHidden', 'false');
+    showWidget();
+  }, 10000);
+}
+</script>
+<!-- Floating Portfolio Button - Paste this anywhere in your website's body -->
+<style>
+  .portfolio-float-btn {
+    position: fixed;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: linear-gradient(135deg, #6e8efb, #a777e3);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    padding: 12px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    animation: pulse 2s infinite;
+  }
+  .portfolio-float-btn:hover {
+    transform: translateY(-50%) scale(1.05);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+  }
+  @keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(110, 142, 251, 0.7); }
+    70% { box-shadow: 0 0 0 10px rgba(110, 142, 251, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(110, 142, 251, 0); }
+  }
+  @media (max-width: 768px) {
+    .portfolio-float-btn {
+      padding: 10px 16px;
+      font-size: 14px;
+      right: 10px;
+    }
+  }
+  @media (max-width: 480px) {
+    .portfolio-float-btn {
+      padding: 8px 12px;
+      font-size: 16px;
+    right: 85px;
+  }
+    }
+  
+</style>
+
+<!-- Font Awesome Icon Loader (will only load if not already loaded) -->
+<script>
+  if (!document.querySelector('link[href*="font-awesome"]')) {
+    const fa = document.createElement('link');
+    fa.rel = 'stylesheet';
+    fa.href = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css';
+    document.head.appendChild(fa);
+  }
+</script>
+
+<!-- The Actual Button -->
+<a href="https://codewithmayank95.github.io/mayankportfolio/" class="portfolio-float-btn">
+  <i class="fas fa-briefcase"></i>
+  <span>Portfolio</span>
+</a>
+</body>
+</html>
